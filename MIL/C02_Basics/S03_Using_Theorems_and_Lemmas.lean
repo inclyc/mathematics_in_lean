@@ -114,7 +114,9 @@ example : 0 ≤ a ^ 2 := by
   exact sq_nonneg a
 
 example (h : a ≤ b) : c - exp b ≤ c - exp a := by
-  sorry
+  apply tsub_le_tsub_left
+  exact exp_le_exp.mpr h
+
 
 example : 2*a*b ≤ a^2 + b^2 := by
   have h : 0 ≤ a^2 - 2*a*b + b^2
