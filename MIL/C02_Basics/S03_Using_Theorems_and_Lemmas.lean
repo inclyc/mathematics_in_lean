@@ -137,6 +137,9 @@ example : 2*a*b ≤ a^2 + b^2 := by
   linarith
 
 example : |a*b| ≤ (a^2 + b^2)/2 := by
-  sorry
+  apply abs_le'.mpr
+  constructor
+  · linarith [sq_nonneg (a - b)]
+  · linarith [sq_nonneg (a + b)]
 
 #check abs_le'.mpr
